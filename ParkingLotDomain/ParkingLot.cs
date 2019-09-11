@@ -46,7 +46,7 @@ namespace ParkingLotDomain
         {
             r = -1; c = -1;
 
-            var slot = _parkingController.GetVehicle(plate);
+            var slot = _parkingController.RemoveVehicle(plate);
 
             if (slot != null)
             {

@@ -86,7 +86,7 @@ namespace ParkingLotDomain
             }
         }
 
-        public Slot GetVehicle(string plate)
+        public Slot RemoveVehicle(string plate)
         {
             Slot slot = null;
 
