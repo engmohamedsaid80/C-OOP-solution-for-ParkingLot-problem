@@ -21,21 +21,21 @@ namespace ParkingLotTest
             parkingLot.AddParkingSlot(Size.XLarge, 1, 2);
             parkingLot.AddParkingSlot(Size.XLarge, 2, 2);
 
-            string[] cars = { "123 ABC", "124 ABC", "125 ABC", "126 ABC"
+            string[] vehicles = { "123 ABC", "124 ABC", "125 ABC", "126 ABC"
                              ,"456 BCD", "457 BCD", "458 BCD"
                              ,"789 EFG", "788 EFG", "787 EFG"};
-            Size[] carSizes = { Size.Med, Size.Med, Size.Med, Size.Med ,
+            Size[] Sizes = { Size.Med, Size.Med, Size.Med, Size.Med ,
                                 Size.Large, Size.Large, Size.Large ,
                                 Size.XLarge, Size.XLarge, Size.XLarge};
 
-            for(int i =0; i< cars.Length; i++) parkingLot.ParkCar(carSizes[i], cars[i]);
+            for(int i =0; i< vehicles.Length; i++) parkingLot.ParkVehicle(Sizes[i], vehicles[i]);
 
-            for (int i = 0; i < cars.Length; i++)
+            for (int i = 0; i < vehicles.Length; i++)
             {
                 int r = 0, c = 0;
-                parkingLot.GetCar(cars[i], out r, out c);
-                Console.WriteLine("Car " + cars[i] + " was at row:" + r + " , col:" + c + 
-                                  " - car Size:" + carSizes[i].ToString());
+                parkingLot.GetVehicle(vehicles[i], out r, out c);
+                Console.WriteLine("vehicle " + vehicles[i] + " was at row:" + r + " , col:" + c + 
+                                  " - Size:" + Sizes[i].ToString());
             }
 
         }

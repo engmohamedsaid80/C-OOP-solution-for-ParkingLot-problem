@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ParkingLotDomain
 {
-    class Car
+    class Vehicle
     {
-        public Car(Size s, string p)
+        public Vehicle(Size s, string p)
         {
             size = s;
             PlateNum = p;

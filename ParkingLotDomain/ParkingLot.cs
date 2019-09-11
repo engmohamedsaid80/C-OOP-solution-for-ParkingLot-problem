@@ -35,18 +35,18 @@ namespace ParkingLotDomain
 
         }
 
-        public bool ParkCar(Size s, string p)
+        public bool ParkVehicle(Size s, string p)
         {
-            Car car = new Car(s, p);
+            Vehicle vehicle = new Vehicle(s, p);
 
-            return _parkingController.ParkCar(car);
+            return _parkingController.ParkVehicle(vehicle);
         }
 
-        public void GetCar(string plate, out int r, out int c)
+        public void GetVehicle(string plate, out int r, out int c)
         {
             r = -1; c = -1;
 
-            var slot = _parkingController.GetCar(plate);
+            var slot = _parkingController.GetVehicle(plate);
 
             if (slot != null)
             {

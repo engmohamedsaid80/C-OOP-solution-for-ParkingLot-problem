@@ -23,41 +23,41 @@ namespace ParkingLotDomain
             occupiedPS = new Dictionary<string, Slot>();
         }
 
-        public bool ParkCar(Car car)
+        public bool ParkVehicle(Vehicle vehicle)
         {
             Slot ps = null;
 
-            if (car.size == Size.Med)
+            if (vehicle.size == Size.Med)
             {
-                ps = medParking.ParkCar(car);
+                ps = medParking.ParkVehicle(vehicle);
 
                 if (ps == null)
                 {
-                    ps = largeParking.ParkCar(car);
+                    ps = largeParking.ParkVehicle(vehicle);
 
                     if(ps == null)
                     {
-                        ps = xLargeParking.ParkCar(car);
+                        ps = xLargeParking.ParkVehicle(vehicle);
                     }
                 }
             }
-            else if (car.size == Size.Large)
+            else if (vehicle.size == Size.Large)
             {
-                ps = largeParking.ParkCar(car);
+                ps = largeParking.ParkVehicle(vehicle);
 
                 if (ps == null)
                 {
-                    ps = xLargeParking.ParkCar(car);
+                    ps = xLargeParking.ParkVehicle(vehicle);
                 }
             }
-            else if (car.size == Size.XLarge)
+            else if (vehicle.size == Size.XLarge)
             {
-                ps = xLargeParking.ParkCar(car);
+                ps = xLargeParking.ParkVehicle(vehicle);
             }
 
             if (ps != null)
             {
-                occupiedPS.Add(car.PlateNum, ps);
+                occupiedPS.Add(vehicle.PlateNum, ps);
                 return true;
             }
 
@@ -86,7 +86,7 @@ namespace ParkingLotDomain
             }
         }
 
-        public Slot GetCar(string plate)
+        public Slot GetVehicle(string plate)
         {
             Slot slot = null;
 

@@ -17,6 +17,6 @@ namespace ParkingLotDomain
         public int row { get; set; }
         public int col { get; set; }
 
-        public Car Car { get; set; }
+        public Vehicle vehicle { get; set; }
     }
 }

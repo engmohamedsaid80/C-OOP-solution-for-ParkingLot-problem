@@ -18,7 +18,7 @@ namespace ParkingLotDomain
             ParkingSlots.Add(s);
         }
 
-        public Slot ParkCar(Car car)
+        public Slot ParkVehicle(Vehicle vehicle)
         {
             Slot ps = null;
 
@@ -27,7 +27,7 @@ namespace ParkingLotDomain
                 ps = ParkingSlots[0];
                 ParkingSlots.Remove(ps);
 
-                ps.Car = car;
+                ps.vehicle = vehicle;
             }
 
             return ps;
