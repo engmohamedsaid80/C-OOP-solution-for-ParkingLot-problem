@@ -35,10 +35,8 @@ namespace ParkingLotDomain
 
         }
 
-        public bool ParkVehicle(Size s, string p)
+        public bool ParkVehicle(Vehicle vehicle)
         {
-            Vehicle vehicle = new Vehicle(s, p);
-
             return _parkingController.ParkVehicle(vehicle);
         }
 

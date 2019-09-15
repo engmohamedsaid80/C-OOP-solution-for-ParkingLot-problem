@@ -27,7 +27,7 @@ namespace ParkingLotDomain
         {
             Slot ps = null;
 
-            if (vehicle.size == Size.Med)
+            if (vehicle.VehicleSize == Size.Med)
             {
                 ps = medParking.ParkVehicle(vehicle);
 
@@ -41,7 +41,7 @@ namespace ParkingLotDomain
                     }
                 }
             }
-            else if (vehicle.size == Size.Large)
+            else if (vehicle.VehicleSize == Size.Large)
             {
                 ps = largeParking.ParkVehicle(vehicle);
 
@@ -50,7 +50,7 @@ namespace ParkingLotDomain
                     ps = xLargeParking.ParkVehicle(vehicle);
                 }
             }
-            else if (vehicle.size == Size.XLarge)
+            else if (vehicle.VehicleSize == Size.XLarge)
             {
                 ps = xLargeParking.ParkVehicle(vehicle);
             }

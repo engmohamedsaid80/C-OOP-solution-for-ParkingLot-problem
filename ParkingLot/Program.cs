@@ -28,7 +28,10 @@ namespace ParkingLotTest
                                 Size.Large, Size.Large, Size.Large ,
                                 Size.XLarge, Size.XLarge, Size.XLarge};
 
-            for(int i =0; i< vehicles.Length; i++) parkingLot.ParkVehicle(Sizes[i], vehicles[i]);
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                parkingLot.ParkVehicle(VehicleFactory.GetVehicleObject(Sizes[i], vehicles[i]));
+            }
 
             for (int i = 0; i < vehicles.Length; i++)
             {
