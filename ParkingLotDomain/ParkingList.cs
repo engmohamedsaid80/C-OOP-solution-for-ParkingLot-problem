@@ -18,9 +18,9 @@ namespace ParkingLotDomain
             ParkingSlots.Add(s);
         }
 
-        public Slot ParkVehicle(Vehicle vehicle)
+        public bool ParkVehicle(Vehicle vehicle, out Slot ps)
         {
-            Slot ps = null;
+            ps = null;
 
             if (ParkingSlots.Count > 0)
             {
@@ -28,9 +28,11 @@ namespace ParkingLotDomain
                 ParkingSlots.Remove(ps);
 
                 ps.vehicle = vehicle;
+
+                return true;
             }
 
-            return ps;
+            return false;
         }
     }
 }

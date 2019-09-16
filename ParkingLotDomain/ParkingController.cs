@@ -26,42 +26,39 @@ namespace ParkingLotDomain
         public bool ParkVehicle(Vehicle vehicle)
         {
             Slot ps = null;
+            bool result = false;
 
             if (vehicle.VehicleSize == Size.Med)
             {
-                ps = medParking.ParkVehicle(vehicle);
-
-                if (ps == null)
-                {
-                    ps = largeParking.ParkVehicle(vehicle);
-
-                    if(ps == null)
-                    {
-                        ps = xLargeParking.ParkVehicle(vehicle);
-                    }
-                }
+                if(!medParking.ParkVehicle(vehicle,out ps))
+                    if (!largeParking.ParkVehicle(vehicle, out ps))
+                        if (!xLargeParking.ParkVehicle(vehicle, out ps))
+                            result = false;
+                        else
+                            result = true;
             }
             else if (vehicle.VehicleSize == Size.Large)
             {
-                ps = largeParking.ParkVehicle(vehicle);
-
-                if (ps == null)
-                {
-                    ps = xLargeParking.ParkVehicle(vehicle);
-                }
+                if (!largeParking.ParkVehicle(vehicle, out ps))
+                    if (!xLargeParking.ParkVehicle(vehicle, out ps))
+                        result = false;
+                    else
+                        result = true;
             }
             else if (vehicle.VehicleSize == Size.XLarge)
             {
-                ps = xLargeParking.ParkVehicle(vehicle);
+                if (!xLargeParking.ParkVehicle(vehicle, out ps))
+                    result = false;
+                else
+                    result = true;
             }
 
             if (ps != null)
             {
                 occupiedPS.Add(vehicle.PlateNum, ps);
-                return true;
             }
 
-            return false;
+            return result;
         }
 
         public void AddEmptySlot(Slot s)
