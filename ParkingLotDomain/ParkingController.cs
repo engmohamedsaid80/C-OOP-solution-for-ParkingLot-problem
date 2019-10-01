@@ -91,6 +91,8 @@ namespace ParkingLotDomain
             {
                 slot = occupiedPS[plate];
 
+                occupiedPS.Remove(plate);
+
                 AddEmptySlot(slot);
             }
 
